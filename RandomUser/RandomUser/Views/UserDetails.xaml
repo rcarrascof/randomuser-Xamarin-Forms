@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RandomUser.Views.UserDetails">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+
+            <Frame Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HasShadow="False" Padding="0">
+                <Frame.Margin>
+                    <OnIdiom x:TypeArguments="Thickness" Phone="20" Tablet="50" />
+                </Frame.Margin>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Grid.Row="0" x:Name="layout">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#1976D2" Padding="15, 12">
+                        <Label Text="Detalle De Usuario" FontSize="17" TextColor="White" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                        <Image Source="ic_close_white" HorizontalOptions="End" VerticalOptions="Center">
+                           
+                        </Image>
+
+
+                    </StackLayout>
+
+                    <Grid HorizontalOptions="FillAndExpand" Padding="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                           
+
+                        </Grid.RowDefinitions>
+
+
+                        <Label Text="Nombre: " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="0" />
+                        <Label Text="{Binding  Usuario.First}" Grid.Row="0" Grid.Column="1"  />
+                        <Label Text="Apellido: " FontAttributes="Bold" FontSize="16" Grid.Row="1" Grid.Column="0" />
+                        <Label Text="{Binding Usuario.Last}" Grid.Row="1" Grid.Column="1"  />
+                        <Label Text="Contacto: " FontAttributes="Bold" FontSize="16" Grid.Row="2" Grid.Column="0" />
+                        <Label Text="{Binding cellphone}" Grid.Row="2" Grid.Column="1"  />
+                        <Label Text="Email:" FontAttributes="Bold" FontSize="16" Grid.Row="3" Grid.Column="0" />
+                        <Label Text="{Binding email}" Grid.Row="3" Grid.Column="1"  />
+                        
+
+
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

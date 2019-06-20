@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RandomUser"
+             xmlns:controls="clr-namespace:RandomUser.Controls"
+             Title="Usuarios"
+             x:Class="RandomUser.Views.MainPage">
+
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" RowSpacing="0" x:Name="container">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>              
+
+                <StackLayout x:Name="container2" Orientation="Vertical" Spacing="0" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" Grid.Row="1">
+                    <Grid BackgroundColor="#1976D2" Margin="0,0,0,0" ColumnSpacing="0" x:Name="filterContainer">
+                        <Grid.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,0" iOS="0,5,0,0" />
+                        </Grid.Padding>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition>
+                                <RowDefinition.Height>
+                                    <OnPlatform x:TypeArguments="GridLength" iOS="50" Android="45" />
+                                </RowDefinition.Height>
+                            </RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        
+                    </Grid>  
+              
+
+                </StackLayout>
+
+                <ListView HorizontalOptions="FillAndExpand" 
+                      VerticalOptions="FillAndExpand" 
+                      Grid.Row="2"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      BackgroundColor="Transparent"
+                      Margin="4,5"    
+                      SeparatorVisibility="None"
+                      x:Name="clientList"
+                      ItemsSource="{Binding ListSource}"
+                      ItemSelected="ClientList_ItemSelected"    >
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="10" HorizontalOptions="FillAndExpand" Margin="3" BackgroundColor="White" HasShadow="{OnPlatform iOS=False, Android=True}">
+
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Spacing="5">
+
+                                            <Image  Margin="0,0,0,-50" HeightRequest="100" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Source="{Binding PictureInfo.Large}"></Image>
+                                            <Label Text="{Binding Name.NombreCompleto}" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" />
+                                           
+                                       
+
+                                        </StackLayout>
+
+                                      
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+              
+            </Grid>
+
+            <controls:ProgressIndicator IsVisible="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" />
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
